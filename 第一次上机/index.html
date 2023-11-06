@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Google Search</title>
+</head>
+
+<body>
+    <div class="search-container">
+        <div class="logo">Google</div>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Google Search">
+            <button class="search-button">Google Search</button>
+            <button class="feeling-lucky-button" onclick="feelingLucky()">Feeling Lucky</button>
+        </div>
+        <div class="links">
+            <a href="image_search.html">Image Search</a>
+            <a href="advanced_search.html">Advanced Search</a>
+        </div>
+    </div>
+    <script>
+        function performGoogleSearch() {
+            var searchQuery = document.getElementById("search-query").value;
+        }
+
+        function feelingLucky() {
+            var luckyUrl = "https://www.google.com/search?q=" + encodeURIComponent(document.getElementById("search-query").value);
+            window.location.href = luckyUrl;
+        }
+    </script>
+</body>
+
+</html>
