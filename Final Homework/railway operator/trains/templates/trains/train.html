@@ -1,0 +1,50 @@
+{% extends "trains/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'trains/style2.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="train-details">
+        <h1 class="train-title">火车详情 - {{ train.trainNum }}</h1>
+        <ul class="train-info">
+            <li><strong>车次:</strong> {{ train.trainNum }}</li>
+            <li><strong>始发站:</strong> {{ train.origin }}</li>
+            <li><strong>终点站:</strong> {{ train.destination }}</li>
+            <li><strong>预计时间:</strong> {{ train.duration }} 分钟</li>
+            <li><strong>费用:</strong> ¥{{ train.cost }}</li>
+            <li><strong>座位数:</strong> {{ train.ticketNum }}</li>
+        </ul>
+
+            <h2 class="passenger-title">乘客:</h2>
+    <ul class="passenger-list">
+        {% for passenger in selected_passengers %}
+            <li>{{ passenger }}</li>
+        {% endfor %}
+        {% if selected_passengers %}
+            <li class="no-passenger">暂无其他乘客</li>
+        {% endif %}
+    </ul>
+
+
+        <form class="booking-form" action="{% url 'book' train.id %}" method="post">
+    {% csrf_token %}
+    <label for="passenger">选择乘客:</label>
+    <select name="passenger" id="passenger">
+        {% for passenger in non_passengers %}
+            <option value="{{ passenger.id }}">{{ passenger }}</option>
+        {% endfor %}
+    </select>
+        <button type="submit">预订</button>
+        </form>
+    <script>
+    // 添加 JavaScript 代码以在表单提交成功后刷新页面
+    document.getElementById('book-form').addEventListener('submit', function() {
+        // 这将在表单提交成功后刷新当前页面
+        location.reload();
+    });
+</script>
+        <a class="back-link" href="{% url 'index' %}">返回所有火车</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "trains/layout.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'trains/style.css' %}">
+{% endblock %}
+{% block body %}
+    <div class="main-content">
+        <h1 class="page-title">列车列表</h1>
+        <ul class="train-list">
+            {% for train in trains %}
+                <li>
+                    <div class="train-info">
+                        <h2 class="train-title"><a href="{% url 'train' train.id %}">Train {{ train.trainNum }}</a></h2>
+                        <p class="route">{{ train.origin }} 到 {{ train.destination }}</p>
+                        <p class="cost">¥ {{ train.cost }}</p>
+                        {% if train.ticketNum > 5 %}
+                            <p class="ticket-info">余票充足</p>
+                        {% elif train.ticketNum > 0 %}
+                            <p class="ticket-info">余票紧张</p>
+                        {% else %}
+                            <p class="ticket-info">无票</p>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
