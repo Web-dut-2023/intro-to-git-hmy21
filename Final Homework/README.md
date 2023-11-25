@@ -30,7 +30,7 @@ Why the CSS file can not import as a template... This problem should be solved b
 
 By using "if" sentence, control how to show in the index page.
 
-#### Solve questions:
+#### Solution:
 
 Every time I want to submit a new people, it may refresh to a result "there is no passenger", Django always lost these context. So I use Session to bank my message. The code below:
 
@@ -59,3 +59,34 @@ I think the meaning of the "user.url" is only when I submit, contrast to the ses
 
 ***That's how it should be！***
 
+
+
+## 2023/11/25
+
+#### First Page
+
+It is a navigation page. IF you want  to inspect all the trains or you are an administrator, you would be satisfied in this page. Find a picture from internet as its background picture, write a single CSS file.
+
+Oh shit. I forgot my password...
+
+#### Database
+
+passenger add column: contact.
+
+#### Add different ticket shows
+
+The quantity of tickets: >5 ?  green; >0 <5? red; =0?  grey. 
+
+#### Add search function
+
+Although I have wrote the function and JS file, it didn't have  any reaction... 
+
+#### Thinking and Problems
+
+The "group" in the Django administration is useless? What is its function?
+
+In the administration page, the first name and the last name is in a long distance.
+
+Why it not change to what I set in my CSS file?
+
+Administration connect to the "submit"

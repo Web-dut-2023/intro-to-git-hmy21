@@ -1,0 +1,49 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+    /* 使用Google Fonts中的艺术字体 */
+    font-family: 'Pacifico', cursive;
+    /* 增大字体大小 */
+    font-size: 20px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    /* 增大标题字体大小 */
+    font-size: 3em;
+}
+
+p, ul {
+    color: white;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #00ffd9;
+    /* 添加文本装饰 */
+    text-decoration: none;
+    /* 添加过渡效果 */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    /* 改变鼠标悬停时的链接颜色 */
+    color: #ff00d4;
+}

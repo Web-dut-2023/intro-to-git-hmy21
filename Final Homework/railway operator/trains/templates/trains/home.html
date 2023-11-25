@@ -1,8 +1,10 @@
+{% load static %}
 <!-- trains/templates/trains/home.html -->
-
+<link rel="stylesheet" href="{% static 'trains/homestyle.css' %}">
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
@@ -11,9 +13,9 @@
     <h1>Welcome to the Train System!</h1>
     <p>Choose an option from the navigation below:</p>
     <ul>
-        <li><a href="{% url 'index' %}">View All Trains</a></li>
+        <li><a href="http://127.0.0.1:8000/trains">View All Trains</a></li>
+        <li><a href="http://127.0.0.1:8000/admin">You Are Administrator</a></li>
 
-        <!-- Add more navigation links as needed -->
     </ul>
 </body>
 </html>

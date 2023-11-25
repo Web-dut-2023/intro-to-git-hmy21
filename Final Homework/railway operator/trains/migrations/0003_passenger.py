@@ -29,6 +29,7 @@ class Migration(migrations.Migration):
                         blank=True, related_name="passengers", to="trains.train"
                     ),
                 ),
+                ("contacts", models.CharField(max_length=64)),
             ],
         ),
     ]
