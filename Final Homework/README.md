@@ -90,3 +90,20 @@ In the administration page, the first name and the last name is in a long distan
 Why it not change to what I set in my CSS file?
 
 Administration connect to the "submit"
+
+
+
+## 2023/11/27
+
+#### Upgrade the page design
+
+The structure of the html page. Change the show form to a table. 
+
+#### Some Problem's Solution
+
+CSS: Layout have not any usage.
+
+Fix the html which would make the JavaScript code cannot run successfully. 
+
+#### Create a sort function
+
