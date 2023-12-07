@@ -156,5 +156,38 @@ The big data model has been banned. How to innovate? In my system, there are som
 
 #### Problem I solved 
 
-Before today, my Python translator was used by 3.9.10 in default. But in fact, there is some limit to it which leads that every time I want to install some software package,  
+Before today, my Python translator was used by 3.9.10 in default. But in fact, there is some limit to it which leads that every time I want to install some software package,  it blocks me from installing them. I adjust some order in the environment path. Finally, I changed the default translator to Python 3.11.
+
+#### AI Model
+
+Ultimately, I think that makes an AI model from openai API.  I found the guides from GitHub.
+
+The first example API is:
+
+[first API](https://github.com/acheong08/ChatGPT)
+
+It is a reversed engine. I installed a Node.js for it. When I run https://chat.openai.com/api/auth/session, there is a difference from what it showed. I failed.
+
+The second I found is:
+
+[second API](https://github.com/PawanOsman/ChatGPT#use-our-hosted-api-reverse-proxy)
+
+For it, I downloaded a WSL and Ubuntu in my Windows operator system. It told me I should be in a Linux or Mac atmosphere to use the "migrate".
+
+I bought a GPT API in Taobao, nevertheless, the problems come successively.  'object is not subscriptable' occurred. I found out how to solve this problem.
+
+```python
+result = response['choices'][0]['text'].strip()
+```
+
+#### GUI
+
+In order to forbid opening the Python file in the terminal, I made up a GUI.
+
+Change url.py and views.py and make a hypertext transfer link to connect the Django project.
+
+```bash
+root1@MrHequipment:~$ cd /mnt/c/Users/Administrator/Desktop/railway\ operator
+root1@MrHequipment:~$ grit apply openai
+```
 
