@@ -22,7 +22,13 @@ class Train(models.Model):
 class Passenger(models.Model):
     first = models.CharField(max_length=64)
     last = models.CharField(max_length=64)
-    trains = models.ManyToManyField(Train, blank=True, related_name="passengers")
+    trains = models.ManyToManyField(Train, blank=True, related_name="passengers", through='Passenger_trains')
     contact = models.CharField(max_length=64)
+
     def __str__(self):
         return f"{self.first} {self.last}"
+
+class Passenger_trains(models.Model):
+    passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)
+    train = models.ForeignKey(Train, on_delete=models.CASCADE)
+    # 可以添加其他字段，例如预订日期等

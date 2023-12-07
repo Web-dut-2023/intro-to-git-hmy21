@@ -8,16 +8,28 @@ body {
     justify-content: center;
     min-height: 100vh;
     flex-direction: column;
-    /* 使用Google Fonts中的艺术字体 */
     font-family: 'Pacifico', cursive;
-    /* 增大字体大小 */
     font-size: 20px;
+}
+
+@keyframes fadeOutMove {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+}
+
+.animated-title {
+    animation: fadeOutMove 2s ease-in-out;
 }
 
 h1 {
     color: white;
     text-align: center;
-    /* 增大标题字体大小 */
     font-size: 3em;
 }
 
@@ -37,13 +49,10 @@ li {
 
 a {
     color: #00ffd9;
-    /* 添加文本装饰 */
     text-decoration: none;
-    /* 添加过渡效果 */
     transition: color 0.3s ease;
 }
 
 a:hover {
-    /* 改变鼠标悬停时的链接颜色 */
     color: #ff00d4;
 }

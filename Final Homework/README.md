@@ -130,3 +130,31 @@ Fix that I cannot update the message in the list, connect to the database, and o
 #### What is INNOVATION?
 
 The big data model has been banned. How to innovate? In my system, there are some easy Django projects.
+
+
+
+> 
+>
+> 下面是2099年铁路系统的相关车次信息
+>
+> 第一列是序号，第二列是终点点火车站，第三列是火车中途时间，第四列是起点火车站，第五列是火车票价，第六列是火车车次号，第七列是剩余票的数量    
+>
+> 1,上海南,330,起点：大连北,100,G1,0
+> 2,终点：哈尔滨西站,435,起点：大连北,100,G2,3
+> 3,终点：上海南,808,起点：沈阳北,100,K1,1
+> 4,终点：重庆西,400,起点：上海南,210,G5,20
+> 5,终点：沈阳北,700,起点：自贡,310,K4,5
+> 6,终点：大连北,1300,起点：邯郸东,200,G8,9
+>
+> 上述信息都记住了么 下面我要根据这些信息问你一些问题 你不要自己设问 你必须根据我给你的铁路信息回答我提供给你的所有问题而不是实际情况回答 如果记住了 回答：根据我给你的信息 
+>
+> 
+>
+> 都那些地方可以坐火车到上海南 那些地方可以坐火车直达到上海南
+
+## 2023/12/6
+
+#### Problem I solved 
+
+Before today, my Python translator was used by 3.9.10 in default. But in fact, there is some limit to it which leads that every time I want to install some software package,  
+

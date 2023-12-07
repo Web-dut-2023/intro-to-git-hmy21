@@ -1,9 +1,13 @@
+
+
 from django.shortcuts import render, get_object_or_404
-from .models import Train, Station, Passenger
+import subprocess
+
+from .models import Train, Station, Passenger, Passenger_trains
 from django import forms
 from django.urls import reverse
-from django.http import HttpResponseRedirect
-
+from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponse
 # Create your views here.
 def home(request):
     return render(request, 'trains/home.html')
@@ -30,13 +34,9 @@ def book(request, train_id):
         if train.ticketNum > 0:
             passenger_id = request.POST.get('passenger')
             passenger = get_object_or_404(Passenger, pk=passenger_id)
-
-            # 获取之前存储在 Session 中的已选择乘客信息
-            selected_passengers = request.session.get('selected_passengers', [])
-            selected_passengers.append(passenger.id)
-
-            # 更新 Session 中的已选择乘客信息
-            request.session['selected_passengers'] = selected_passengers
+            booking = Passenger_trains.objects.create(passenger=passenger, train=train)
+            # 添加预订
+            passenger.trains.add(train)
 
             # 更新相关信息
             train.ticketNum -= 1
@@ -48,8 +48,43 @@ def book(request, train_id):
     # 其他渲染页面的逻辑
     non_passengers = Passenger.objects.exclude(trains=train)
 
-    # 获取 Session 中的已选择乘客信息并传递给模板
-    selected_passenger_ids = request.session.get('selected_passengers', [])
-    selected_passengers = Passenger.objects.filter(id__in=selected_passenger_ids)
+    # 获取已预订的乘客并传递给模板
+    selected_passengers = Passenger.objects.filter(trains=train)
 
     return render(request, 'trains/train.html', {'train': train, 'non_passengers': non_passengers, 'selected_passengers': selected_passengers})
+def run_python_script(request):
+    script_path = 'ai.py'
+
+    # 使用 subprocess.Popen 运行 Python 脚本，并等待脚本执行完毕
+    process = subprocess.Popen(['python', script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = process.communicate()
+
+    if process.returncode == 0:
+        return HttpResponse(f"Python 脚本执行成功！\nOutput:\n{output.decode('utf-8')}")
+    else:
+        return HttpResponse(f"Python 脚本执行失败：\nError:\n{error.decode('utf-8')}")
+"""
+def chat_view(request):
+    if request.method == 'POST':
+        input_text = request.POST.get('input_text', '')
+        chat_bot = Chat_bot('text-davinci-003')
+        response_text = chat_bot.Generate()
+        return JsonResponse({'response': response_text})
+
+    return render(request, 'trains/ai.html')
+
+
+def send_input(request):
+    if request.method == 'POST':
+        input_text = request.POST.get('input_text', '')
+
+        # Initialize the Chat_bot and get the response
+        chat_bot = Chat_bot('text-davinci-003')
+        response_text = chat_bot.Generate()
+
+        # Return the response as JSON
+        return JsonResponse({'response': response_text})
+    else:
+        # Return an error for non-POST requests
+        return JsonResponse({'error': 'Invalid method'})
+        """
