@@ -191,3 +191,8 @@ root1@MrHequipment:~$ cd /mnt/c/Users/Administrator/Desktop/railway\ operator
 root1@MrHequipment:~$ grit apply openai
 ```
 
+
+
+#### 2023/12/8
+
+due to transmitting the API key to the properties, I had to buy another API key...
